@@ -12,6 +12,7 @@ Hospitalapp est une application de gestion hospitalière développée avec **Spr
 - **Gestion des services** : Ajouter et gérer les services hospitaliers disponibles.
 
 ---
+
 ## 🛠️ Technologies Utilisées
 
 - **Java** : Langage de programmation principal.
@@ -24,11 +25,13 @@ Hospitalapp est une application de gestion hospitalière développée avec **Spr
 - **Git** : Pour le contrôle de version du code source.
 ....
 
+
 ## 📢 Notes  
 
 - 🚀 Ce projet est en cours de développement. Actuellement, seule la **gestion des patients** est implémentée.  
 - 🔧 Les fonctionnalités pour la gestion des **médecins, rendez-vous et consultations** seront ajoutées prochainement.
 
+---
 
 ## 📂 Structure du Projet
 
@@ -61,7 +64,31 @@ Hospitalapp est une application de gestion hospitalière développée avec **Spr
 │   │
 
 
+## 📸 Screenshots
+Here are some screenshots of the app:
 
+## 🚀 **Gestion des Patients**
+
+
+### 📊 **Liste des patients**
+![Liste des patients](Screenshots/1.jpg)  
+*Caption: La liste des patients affichée avec des options de pagination et de filtrage.*
+
+### ➕ **Ajouter un patient**
+![Ajouter un patient](scrennshots/2.jpg)  
+*Caption: L'écran permettant d'ajouter un nouveau patient avec un formulaire.*
+
+### ✏️ **Modifier un patient**
+![Modifier un patient](scrennshots/3.jpg)  
+*Caption: L'écran permettant de modifier les informations d'un patient existant.*
+
+### 🗑️ **Supprimer un patient**
+![Supprimer un patient](images/supprimer_patient.jpg)  
+*Caption: L'écran permettant de supprimer un patient de la base de données.*
+
+### 🔍 **Rechercher un patient**
+![Rechercher un patient](images/rechercher_patient.jpg)  
+*Caption: L'écran de recherche permettant de filtrer les patients par nom ou d'autres critères.*
 
 
 ## 📸 Exemples de Code
