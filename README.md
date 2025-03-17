@@ -1,39 +1,41 @@
-# TP2:📂  HospitalAPP
+# TP2: 📂 HospitalAPP
 
-##  💡  Description
+## 💡 Description
 
-Hospitalapp est une application de gestion hospitalière développée avec **Spring Boot**. Cette application permet de gérer les patients, les médecins, les rendez-vous, les services et les traitements au sein d'un hôpital. Elle utilise **Spring Data JPA** pour la gestion de la base de données et **MySQL** comme système de gestion de base de données relationnelle.
+Hospitalapp is a hospital management application developed with **Spring Boot**. This application allows managing patients, doctors, appointments, services, and treatments within a hospital. It uses **Spring Data JPA** for database management and **MySQL** as the relational database management system.
 
-## 🚀 Fonctionnalités
+## 🚀 Features
 
-- **Gestion des patients** : Ajouter, modifier, supprimer et consulter les informations des patients.
-- **Gestion des médecins** : Ajouter, modifier, supprimer et consulter les informations des médecins.
-- **Gestion des rendez-vous** : Organiser, modifier, annuler et consulter les rendez-vous entre patients et médecins.
-- **Gestion des services** : Ajouter et gérer les services hospitaliers disponibles.
+- **Patient Management**: Add, modify, search, delete, and view patient information.
+- **Doctor Management**: Add, modify, delete, and view doctor information.
+- **Appointment Management**: Organize, modify, cancel, and view appointments between patients and doctors.
+- **Service Management**: Add and manage available hospital services.
 
 ---
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies Used
 
-- **Java** : Langage de programmation principal.
-- **Spring Boot** : Framework pour la création de l'application web.
-- **Spring Data JPA** : Gestion des accès à la base de données.
-- **MySQL** : Système de gestion de base de données relationnelle.
-- **Thymeleaf** : Template engine pour la partie front-end.
-- **Bootstrap** : Pour le design.
-- **Maven** : Gestion des dépendances et de la construction du projet.
-- **Git** : Pour le contrôle de version du code source.
+- **Java**: Main programming language.
+- **Spring Boot**: Framework for building the web application.
+- **Spring Data JPA**: Database access management.
+- **MySQL**: Relational database management system.
+- **Thymeleaf**: Template engine for the front-end.
+- **Bootstrap**: For design.
+- **Maven**: Dependency management and project build tool.
+- **Git**: Version control for the source code.
 ....
 
+## 📢 Notes
 
-## 📢 Notes  
-
-- 🚀 Ce projet est en cours de développement. Actuellement, seule la **gestion des patients** est implémentée.  
-- 🔧 Les fonctionnalités pour la gestion des **médecins, rendez-vous et consultations** seront ajoutées prochainement.
+- 🚀 This project is under development. Currently, only **patient management** is implemented.  
+- 🔧 Features for managing **doctors, appointments, and consultations** will be added soon.
 
 ---
 
-## 📂 Structure du Projet
+## 📂 Project Structure
+
+
+ ```
 
 ├───src
 │   ├───main
@@ -64,36 +66,37 @@ Hospitalapp est une application de gestion hospitalière développée avec **Spr
 │   │
 
 
+ ```
+
 ## 📸 Screenshots
+
 Here are some screenshots of the app:
 
-## 🚀 **Gestion des Patients**
+### 📊 **Patient List**
+![Patient List](Screenshots/1.png)  
+*Caption: The list of patients displayed with pagination and filtering options.*
 
+### 🔍 **Search a Patient**
+![Search a Patient](Screenshots/2.png)  
+*Caption: The search screen allowing you to filter patients by name or other criteria.*
 
-### 📊 **Liste des patients**
-![Liste des patients](Screenshots/1.jpg)  
-*Caption: La liste des patients affichée avec des options de pagination et de filtrage.*
+### ➕ **Add a Patient**
+![Add a Patient](Screenshots/4.png)  
+![Add a Patient](Screenshots/5.png)  
+*Caption: The screen allowing you to add a new patient with a form.*
 
-### ➕ **Ajouter un patient**
-![Ajouter un patient](scrennshots/2.jpg)  
-*Caption: L'écran permettant d'ajouter un nouveau patient avec un formulaire.*
+### ✏️ **Edit a Patient**
+![Edit a Patient](Screenshots/6.png)  
+![Edit a Patient](Screenshots/7.png)  
+*Caption: The screen allowing you to edit an existing patient's information.*
 
-### ✏️ **Modifier un patient**
-![Modifier un patient](scrennshots/3.jpg)  
-*Caption: L'écran permettant de modifier les informations d'un patient existant.*
+### 🗑️ **Delete a Patient**
+![Delete a Patient](Screenshots/3.png)  
+*Caption: The screen allowing you to delete a patient from the database.*
 
-### 🗑️ **Supprimer un patient**
-![Supprimer un patient](images/supprimer_patient.jpg)  
-*Caption: L'écran permettant de supprimer un patient de la base de données.*
+## 📸 Code Examples
 
-### 🔍 **Rechercher un patient**
-![Rechercher un patient](images/rechercher_patient.jpg)  
-*Caption: L'écran de recherche permettant de filtrer les patients par nom ou d'autres critères.*
-
-
-## 📸 Exemples de Code
-
-### 🖥️ **Class Patient**
+### 🖥️ **Patient Class**
 ```
 package ma.enset.hospitalapp.entities;
 
@@ -177,7 +180,7 @@ public class Patient {
 
 ```
 
-### 🖥️ **Class PatientRepository**
+### 🖥️ ** PatientRepository Class**
 ```
 package ma.enset.hospitalapp.repository;
 
@@ -198,7 +201,7 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
 ```
 
-### 🖥️ **Class PatientController**
+### 🖥️ ** PatientController Class**
 ```
 package ma.enset.hospitalapp.web;
 
@@ -277,7 +280,7 @@ public class PatientController {
 
 ```
 
-### 🖥️ **code patients.html**
+### 🖥️ **Code for patients.html**
 ```
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
@@ -345,17 +348,17 @@ public class PatientController {
 </html>
 
 ```
-## 💌 Auteur
+## 💌 Author
 
 👩‍💻 **Rim Aaloi**  
 💌 Contact: [GitHub Profile](https://github.com/RimAaloi) | [LinkedIn](https://www.linkedin.com/in/rim-aaloi/)  
 
 ---
 
-## 📚 Ressources
+## 📚 Resources
 
-- **Spring Documentation** : [https://spring.io/docs](https://spring.io/docs)
-- **MySQL Documentation** : [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)
-- **Bootstrap Documentation** : [https://getbootstrap.com/docs](https://getbootstrap.com/docs/)
+- **Spring Documentation**: [https://spring.io/docs](https://spring.io/docs)
+- **MySQL Documentation**: [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)
+- **Bootstrap Documentation**: [https://getbootstrap.com/docs](https://getbootstrap.com/docs/)
 
 ---
