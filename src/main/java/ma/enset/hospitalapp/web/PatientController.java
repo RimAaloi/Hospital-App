@@ -23,6 +23,7 @@ public class PatientController {
         Page<Patient> pagepatients = patientRepository.findAll(PageRequest.of(page,size));
         model.addAttribute("listpatients", pagepatients.getContent());
         model.addAttribute("pages",new int[pagepatients.getTotalPages()]);
+        model.addAttribute("currentPage",page);
 
         return "patients";
     }
