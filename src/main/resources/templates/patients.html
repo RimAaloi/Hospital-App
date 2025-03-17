@@ -10,6 +10,13 @@
 <div class="container my-3">
     <h1 class="text-center mb-3">Liste des patients</h1>
     <a class="btn btn-primary" href="@{/patients/new}">Nouveau patient</a>
+    <form method="get" action="@{index}">
+        <label>keyword:</label>
+        <input type="text" name="keyword" th:value="${keyword}">
+        <button type="submit" class="btn btn-info">
+            cherhcer
+        </button>
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -35,7 +42,7 @@
                     Modifier
                 </a>
                 <a class="btn btn-danger btn-sm"
-                   th:href="@{/patients/delete(id=${p.id})}" onclick="return confirm('Êtes-vous sûr ?')">
+                   th:href="@{delete(id=${p.id})}" onclick="return confirm('Êtes-vous sûr ?')">
                     Supprimer
                 </a>
             </td>
@@ -44,7 +51,7 @@
     </table>
     <ul class="nav nav-pills">
         <li th:each="page,status:${pages}">
-            <a th:href="@{/index(page=${status.index})}"
+            <a th:href="@{/index(page=${status.index},keyword=${keyword})}"
                th:class="${(currentPage==status.index)?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
                class="btn btn-outline-info"
                th:text="${status.index}"></a>

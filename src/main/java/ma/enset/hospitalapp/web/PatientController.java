@@ -18,14 +18,24 @@ public class PatientController {
 
     @GetMapping({"/index"})
     public String getpatient(Model model,
-                             @RequestParam(name ="name",defaultValue = "0")int page,
-                             @RequestParam(name = "size",defaultValue = "4")int size) {
-        Page<Patient> pagepatients = patientRepository.findAll(PageRequest.of(page,size));
+                             @RequestParam(name ="name",defaultValue = "0")int p,
+                             @RequestParam(name = "size",defaultValue = "4")int s,
+                             @RequestParam(name = "keyword",defaultValue = "")String kw) {
+        Page<Patient> pagepatients = patientRepository.findAll(PageRequest.of(p,s));
         model.addAttribute("listpatients", pagepatients.getContent());
         model.addAttribute("pages",new int[pagepatients.getTotalPages()]);
-        model.addAttribute("currentPage",page);
-
+        model.addAttribute("currentPage",p);
+        model.addAttribute("keyword",kw);
         return "patients";
+    }
+
+
+    @GetMapping("/delete")
+    public String deletepatient(Long id) {
+
+        patientRepository.deleteById(id);
+
+        return "redirect:/index";
     }
 
 }
