@@ -81,17 +81,17 @@ Here are some screenshots of the app:
 *Caption: The search screen allowing you to filter patients by name or other criteria.*
 
 ### ➕ **Add a Patient**
-![Add a Patient](Screenshots/4.png)  
 ![Add a Patient](Screenshots/5.png)  
+![Add a Patient](Screenshots/6.png)  
 *Caption: The screen allowing you to add a new patient with a form.*
 
 ### ✏️ **Edit a Patient**
-![Edit a Patient](Screenshots/6.png)  
-![Edit a Patient](Screenshots/7.png)  
+![Edit a Patient](Screenshots/3.png)  
+![Edit a Patient](Screenshots/4.png)  
 *Caption: The screen allowing you to edit an existing patient's information.*
 
 ### 🗑️ **Delete a Patient**
-![Delete a Patient](Screenshots/3.png)  
+![Delete a Patient](Screenshots/7.png)  
 *Caption: The screen allowing you to delete a patient from the database.*
 
 ## 📸 Code Examples
