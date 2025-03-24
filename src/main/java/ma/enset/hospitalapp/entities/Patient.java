@@ -23,7 +23,7 @@ public class Patient {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateNaissance;
     private boolean malade ;
-    @DecimalMin(("100"))
+    @DecimalMin(("99"))
     private int score ;
 
     public Long getId() {
