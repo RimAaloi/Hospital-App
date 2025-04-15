@@ -103,9 +103,11 @@ Here are some screenshots of the app:
 
 ### 📊 **Page login**
 ![Login Page](Screenshots/1.png)
+
 *Caption: This is the login page secured with Spring Security.*
 ### 📊 **Patient List**
 ![Patient List](Screenshots/2.png)  
+
 *Caption: The list of patients displayed with pagination and filtering options.*
 
 ### 🔍 **Search a Patient**
