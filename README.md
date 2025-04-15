@@ -102,7 +102,7 @@ L’application intègre **Spring Security** pour sécuriser l’accès aux ress
 Here are some screenshots of the app:
 
 ### 📊 **Page login**
-![Login Page]Screenshots/1.png)
+![Login Page](Screenshots/1.png)
 *Caption: This is the login page secured with Spring Security.*
 ### 📊 **Patient List**
 ![Patient List](Screenshots/2.png)  
