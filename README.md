@@ -1,4 +1,6 @@
-# TP2: 📂 HospitalAPP
+# 📌 Application Web JEE — HospitalAPP
+
+Projet réalisé dans le cadre du cours de **Spring JEE** dispensé par **Prof. Mohamed YOUSSFI**.
 
 ## 💡 Description
 
@@ -32,38 +34,65 @@ Hospitalapp is a hospital management application developed with **Spring Boot**.
 
 ---
 
+## 🔐 Security
+
+L’application intègre **Spring Security** pour sécuriser l’accès aux ressources et pages sensibles.
+
+### 📌 Fonctionnalités :
+
+- Page de connexion personnalisée
+- Gestion des utilisateurs et mots de passe en mémoire *(dans cette version)*
+- Attribution de rôles (`USER`, `ADMIN`)
+- Protection des URL :
+  - Les pages de gestion des patients accessibles uniquement après connexion
+  - Redirection vers `/notauthorized` en cas d’accès non autorisé
+  
+
 ## 📂 Project Structure
 
 
  ```
 
+├───.idea
+├───.mvn
+│   └───wrapper
+├───Screenshots
 ├───src
 │   ├───main
 │   │   ├───java
 │   │   │   └───ma
 │   │   │       └───enset
 │   │   │           └───hospitalapp
-│   │   │               │   HospitalappApplication.java
-│   │   │               │
 │   │   │               ├───entities
-│   │   │               │       Patient.java
-│   │   │               │
 │   │   │               ├───repository
-│   │   │               │       PatientRepository.java
-│   │   │               │
+│   │   │               ├───security
 │   │   │               └───web
-│   │   │                       PatientController.java
-│   │   │
 │   │   └───resources
-│   │       │   application.properties
-│   │       │
 │   │       ├───static
 │   │       └───templates
-│   │               editPatient.html
-│   │               formPatients.html
-│   │               patients.html
-│   │               template1.html
-│   │
+│   └───test
+│       └───java
+│           └───ma
+│               └───enset
+│                   └───hospitalapp
+└───target
+    ├───classes
+    │   ├───ma
+    │   │   └───enset
+    │   │       └───hospitalapp
+    │   │           ├───entities
+    │   │           ├───repository
+    │   │           ├───security
+    │   │           └───web
+    │   └───templates
+    ├───generated-sources
+    │   └───annotations
+    ├───generated-test-sources
+    │   └───test-annotations
+    └───test-classes
+        └───ma
+            └───enset
+                └───hospitalapp
 
 
  ```
@@ -72,26 +101,27 @@ Hospitalapp is a hospital management application developed with **Spring Boot**.
 
 Here are some screenshots of the app:
 
+### 📊 **Page login**
+![Login Page]Screenshots/1.png)
+*Caption: This is the login page secured with Spring Security.*
 ### 📊 **Patient List**
-![Patient List](Screenshots/1.png)  
+![Patient List](Screenshots/2.png)  
 *Caption: The list of patients displayed with pagination and filtering options.*
 
 ### 🔍 **Search a Patient**
-![Search a Patient](Screenshots/2.png)  
+![Search a Patient](Screenshots/3.png)  
 *Caption: The search screen allowing you to filter patients by name or other criteria.*
 
 ### ➕ **Add a Patient**
-![Add a Patient](Screenshots/5.png)  
-![Add a Patient](Screenshots/6.png)  
+![Add a Patient](Screenshots/4.png)   
 *Caption: The screen allowing you to add a new patient with a form.*
 
 ### ✏️ **Edit a Patient**
-![Edit a Patient](Screenshots/3.png)  
-![Edit a Patient](Screenshots/4.png)  
+![Edit a Patient](Screenshots/5.png)  
 *Caption: The screen allowing you to edit an existing patient's information.*
 
 ### 🗑️ **Delete a Patient**
-![Delete a Patient](Screenshots/7.png)  
+![Delete a Patient](Screenshots/6.png)  
 *Caption: The screen allowing you to delete a patient from the database.*
 
 ## 📸 Code Examples
@@ -348,6 +378,89 @@ public class PatientController {
 </html>
 
 ```
+### 📄 Exemple de configuration `SecurityConfig.java` :
+
+```
+package ma.enset.hospitalapp.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager(PasswordEncoder passwordEncoder){
+        String encodedPassword = passwordEncoder.encode("1234");
+        System.out.println(encodedPassword);
+        return new InMemoryUserDetailsManager(
+                User.withUsername("user1").password(encodedPassword).roles("USER").build(),
+                User.withUsername("user2").password(encodedPassword).roles("USER").build(),
+                User.withUsername("admin").password(encodedPassword).roles("USER","ADMIN").build()
+        );
+    }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity
+                .formLogin(ar -> ar.loginPage("/login").defaultSuccessUrl("/").permitAll())
+
+                .rememberMe(rm -> rm.key("remember-me-key") // Enables remember-me feature
+                        .tokenValiditySeconds(40000) // Token valid for 1 day (optional)
+                )
+                .exceptionHandling(ar -> ar.accessDeniedPage("/notAuthorized"))
+                .authorizeHttpRequests(ar->ar.requestMatchers("/deletePatient/**").hasRole("ADMIN"))
+                .authorizeHttpRequests(ar->ar.requestMatchers("/admin/**").hasRole("ADMIN"))
+                .authorizeHttpRequests(ar->ar.requestMatchers("/user/**").hasRole("USER"))
+                .authorizeHttpRequests(ar->ar.anyRequest().authenticated())
+                .build();
+    }
+}
+
+```
+
+---
+
+## 🎥 Vidéos de Cours
+Ces vidéos ont été réalisées par **Prof. Mohamed YOUSSFI** dans le cadre du cours de Spring Boot :
+
+### 📌 Partie 1 : Application Web JEE avec Spring MVC, Thymeleaf et Spring Data JPA  
+- [Introduction et Gestion des patients](https://www.youtube.com/watch?v=jDm-q-jEbiA)
+
+### 📌 Partie 2 : Validation des formulaires et Template  
+- [Création de pages template et validation](https://www.youtube.com/watch?v=eoBE745lDE0)
+
+### 📌 Partie 3 : Sécurité avec Spring Security  
+
+1. [InMemory Authentication](https://www.youtube.com/watch?v=7VqpC8UD1zM)
+2. [JDBC Authentication](https://www.youtube.com/watch?v=Haz3wLiQ5-0)
+3. [UserDetails Service](https://www.youtube.com/watch?v=RTiS9ygyYs4)
+
+---
+
+## ✅ Consignes
+
+- Créer un repository GitHub
+- Effectuer un commit et un push toutes les **30 minutes environ**
+- Utiliser ce fichier `README.md` pour rédiger le rapport de projet
+- Faire un dernier commit à la fin de la séance
+- Poursuivre ensuite le développement et compléter l’activité pratique
+
+---
+
+## 📌 Auteur
+
+- 👩‍💻 *Votre Nom*
+
+---
+
+
 ## 💌 Author
 
 👩‍💻 **Rim Aaloi**  
