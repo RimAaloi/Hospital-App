@@ -456,12 +456,6 @@ Ces vidéos ont été réalisées par **Prof. Mohamed YOUSSFI** dans le cadre du
 
 ---
 
-## 📌 Auteur
-
-- 👩‍💻 *Votre Nom*
-
----
-
 
 ## 💌 Author
 
